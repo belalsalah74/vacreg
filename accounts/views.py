@@ -11,4 +11,5 @@ class RegisterView(generic.CreateView):
     model = User
     success_url = '/'
     form_class = RegisterForm
+    template_name = 'accounts/register_login.html'
 

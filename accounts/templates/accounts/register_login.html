@@ -1,8 +1,10 @@
-{% extends 'base.html' %}
+{% extends 'vac/base.html' %}
 {% block title %}Sign up{% endblock title %}
 
+{% block content %}
 <form action="" method="post">
 {% csrf_token %}
-{{form.as_p}}
+    {{form.as_p}}
 <input type="submit" >
 </form>
+{% endblock content %}

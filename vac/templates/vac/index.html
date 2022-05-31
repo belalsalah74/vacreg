@@ -1,0 +1,9 @@
+{% extends 'vac/base.html' %}
+    {% block content %}
+
+    <h2>Welcome {% if request.user.is_authenticated %}{{request.user.username}}{% endif %} </h2>
+
+    <h3><a href="{% url 'accounts:register' %}">SignUp</a></h3>
+    <h3><a href="{% url 'accounts:login' %}">Login</a></h3>
+
+    {% endblock content %}

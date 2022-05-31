@@ -1,0 +1,9 @@
+{% extends 'vac/base.html' %}
+{% block title %}Vaccine application{% endblock title %}
+{% block content %}
+
+<form  method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+</form>
+{% endblock content %}
