@@ -2,20 +2,28 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
 from django.contrib.auth import get_user_model
+
 User = get_user_model()
-admin.site.unregister(User)
 
 
 class UserAdmin(BaseUserAdmin):
-    add_fieldsets = (
+   
+    fieldsets = (
+        (None, {"fields": ("username", "password")}),
+        (("Personal info"), {
+            "fields": ("first_name", "last_name", 'national_id', "email", 'phone_number')}),
         (
-            None,
+            ("Permissions"),
             {
-                "classes": ("wide",),
-                "fields": ("username", "password1", "password2", 'email'),
+                "fields": (
+                    "is_active",
+                    "is_staff",
+                    "is_superuser",
+                    "groups",
+                    "user_permissions",
+                ),
             },
         ),
+        (("Important dates"), {"fields": ("last_login", "date_joined",'birth_date')}),
     )
-
-
 admin.site.register(User, UserAdmin)

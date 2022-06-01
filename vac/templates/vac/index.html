@@ -1,9 +1,12 @@
 {% extends 'vac/base.html' %}
     {% block content %}
 
-    <h2>Welcome {% if request.user.is_authenticated %}{{request.user.username}}{% endif %} </h2>
+    <h2>Welcome {% if request.user.is_authenticated %}{{request.user.username}} </h2>
+    <a href="{% url 'vaccine:vaccine-detail' %}">Review your shot details.</a>
+    {% else %}
+    <h3><a href="{% url 'accounts:register' %}">SignUp for a vaccine shot Now</a></h3>
+    
 
-    <h3><a href="{% url 'accounts:register' %}">SignUp</a></h3>
-    <h3><a href="{% url 'accounts:login' %}">Login</a></h3>
-
+        <h3><a href="{% url 'accounts:login' %}">Login to review your vaccine detail</a></h3>
+    {% endif %}
     {% endblock content %}

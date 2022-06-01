@@ -28,10 +28,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'vac',
     'accounts',
+    'crispy_forms',
 ]
 
+from django.urls import reverse_lazy
 
-LOGIN_REDIRECT_URL = '/'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+AUTH_USER_MODEL = 'accounts.CustomUser'
+LOGIN_REDIRECT_URL = reverse_lazy('vaccine:vaccine-detail')
 LOGIN_URL = '/login/'
 LOGOUT_REDIRECT_URL = LOGIN_URL
 

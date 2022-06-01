@@ -33,11 +33,8 @@ class VaccineShot(models.Model):
     city = models.CharField(max_length=255, choices=CITY_CHOICES, default='1')
    
     def __str__(self) -> str:
-        return f'shot {self.id}'
+        return f'shot {self.id}-{self.user.username}'
 
-    @property
-    def place(self):
-        return f'{self.get_city_display()} vaccine center'
       
 @receiver(post_save,sender=VaccineShot)
 def shot_date(instance,created,*args, **kwargs):
