@@ -1,0 +1,14 @@
+{% extends 'vac/base.html' %}
+{% block title %}Vaccine Details{% endblock title %}
+{% block content %}
+<h1>Welcome {{object.user.username}}</h1>
+
+{% if object.status == 'P' and now < object.shot_date %}
+            <h3>Your shot is scheduled on {{object.shot_date}} at {{object.place}}.</h3>
+{% elif object.status == 'C' and now > object.shot_date %}
+    <h3>Your shot wass succesfully cmopleted</h3>
+{% else %}
+    <h3>Somethong is wrong please contact customer service.</h3>
+{% endif %}
+
+{% endblock content %}

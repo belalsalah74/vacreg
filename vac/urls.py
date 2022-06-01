@@ -5,6 +5,8 @@ from . import views
 app_name = 'vac'
 urlpatterns = [
     path('',views.Index.as_view(),name='home'),
-    path('vaccine/',views.VaccineRegister.as_view(),name='vaccine'),
+    path('vaccine/',views.VaccineCreate.as_view(),name='vaccine-create'),
+    path('vaccine/<int:pk>',views.VaccineDetail.as_view(),name='vaccine-detail'),
+
 ]
 
