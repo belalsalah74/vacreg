@@ -1,12 +1,277 @@
-{% extends 'vac/base.html' %}
-    {% block content %}
+{% extends 'vac/base.html' %} {% block content %} {%load static%}
 
-    <h2>Welcome {% if request.user.is_authenticated %}{{request.user.username}} </h2>
-    <a href="{% url 'vaccine:vaccine-detail' %}">Review your shot details.</a>
-    {% else %}
-    <h3><a href="{% url 'accounts:register' %}">SignUp for a vaccine shot Now</a></h3>
-    
+<section class="hero py-5 py-md-2 text-white ">
+  <div class="container">
+    <div class="row align-items-center mt-2 mt-md-0">
 
-        <h3><a href="{% url 'accounts:login' %}">Login to review your vaccine detail</a></h3>
-    {% endif %}
-    {% endblock content %}
+      <div class="col-md-6">
+        <h1 class="display-3 fw-semibold mb-3">
+          COVID-19 Vaccine: Safe, Effective, Free
+        </h1>
+        <img src="{% static 'images/large-corona.svg' %}" alt="svg" class="corona-svg svg-lg">
+        <img src="{% static 'images/small-corona.svg' %}" alt="svg" class="corona-svg svg-sm">
+        <p class="hero-text">
+          Vaccines against COVID-19 is considered an important public health
+          tool for containing the pandemic in the medium and long term by
+          increasing the population immunity against SARS-CoV-2. Local data
+          showed that three doses of COVID-19 vaccines are highly effective in
+          reducing hospitalization and death across all age groups in the adult
+          population.
+        </p>
+
+        <div class="row mt-5 g-2">
+          <div class="col-md-5">
+            <a
+              href="{% url 'accounts:register' %}"
+              class="btn btn-outline-light fw-semibold d-block w-100"
+              >Sign up for a vaccine shot</a
+            >
+          </div>
+          <div class="col-md-5">
+            <a
+              href="{% url 'vaccine:vaccine-detail' %}"
+              class="btn btn-success fw-semibold d-block w-100"
+              >Review your shot details</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 d-none d-md-block">
+        <img
+          src="{% static 'images/illustrtation.svg' %}"
+          alt="illustrtation"
+          class="img-fluid illustrtation"
+        />
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq bg-light py-4" id="faq">
+  <div class="container">
+    <div class="row">
+      <h2 class="display-4 text-center">Frequently asked questions</h2>
+
+      <div class="accordion col-md-9 mx-auto mt-5" id="faq-accordion">
+        <!-- q1 -->
+        <div class="accordion-item">
+          <h3 class="accordion-header text-center">
+            <button
+              class="accordion-button fw-semibold"
+              data-bs-toggle="collapse"
+              data-bs-target="#q-1"
+            >
+              Are COVID-19 vaccines safe?
+            </button>
+          </h3>
+          <div
+            class="accordion-collapse collapse"
+            id="q-1"
+            data-bs-parent="#faq-accordion"
+          >
+            <div class="accordion-body bg-white">
+              Although COVID-19 vaccines were developed quickly, research and
+              development on vaccines like these have been underway for decades.
+              All vaccine development steps were taken to ensure COVID-19
+              vaccine safety and effectiveness
+            </div>
+          </div>
+        </div>
+        <!-- q2 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button fw-semibold"
+              data-bs-toggle="collapse"
+              data-bs-target="#q-2"
+            >
+              What are the possible side effects?
+            </button>
+          </h2>
+          <div
+            class="accordion-collapse collapse"
+            id="q-2"
+            data-bs-parent="#faq-accordion"
+          >
+            <div class="accordion-body bg-white">
+              The vaccine has been assessed to be safe for use. However, you may
+              experience common side effects, similar to other vaccines. Most
+              side effects are mild or moderate, and usually get better within a
+              few days.
+            </div>
+          </div>
+        </div>
+        <!-- q3 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button fw-semibold"
+              data-bs-toggle="collapse"
+              data-bs-target="#q-3"
+            >
+              What are the benifits of getting vaccinated?
+            </button>
+          </h2>
+          <div
+            class="accordion-collapse collapse"
+            id="q-3"
+            data-bs-parent="#faq-accordion"
+          >
+            <div class="accordion-body bg-white">
+              Getting vaccinated could save your life. COVID-19 vaccines provide
+              strong protection against serious illness, hospitalization and
+              death. There is also some evidence that being vaccinated will make
+              it less likely that you will pass the virus on to others, which
+              means your decision to get the vaccine also protects those around
+              you.
+            </div>
+          </div>
+        </div>
+        <!-- q4 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button fw-semibold"
+              data-bs-toggle="collapse"
+              data-bs-target="#q-4"
+            >
+              How do vaccines work?
+            </button>
+          </h2>
+          <div
+            class="accordion-collapse collapse"
+            id="q-4"
+            data-bs-parent="#faq-accordion"
+          >
+            <div class="accordion-body bg-white">
+              Vaccines stimulate the human body's own protective immune
+              responses so that, if a person is infected with a pathogen, the
+              immune system can quickly prevent the infection from spreading
+              within the body and causing disease. In this way, vaccines mimic
+              natural infection but without actually causing the person to
+              become sick.
+            </div>
+          </div>
+        </div>
+        <!-- q5 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button fw-semibold"
+              data-bs-toggle="collapse"
+              data-bs-target="#q-5"
+            >
+              Can pregnant women be vaccinated?
+            </button>
+          </h2>
+          <div
+            class="accordion-collapse collapse"
+            id="q-5"
+            data-bs-parent="#faq-accordion"
+          >
+            <div class="accordion-body bg-white">
+              Although the large phase 3 trials of the Pfizer-BioNTech and
+              Moderna Covid-19 vaccines did not include pregnant women, eligible
+              pregnant women may be vaccinated. The two mRNA vaccines are not
+              contraindicated during pregnancy. Pregnant women should consider
+              the risks of Covid-19, which may be more severe in pregnant women,
+              and the uncertain risk of vaccination. More information on the
+              safety and efficacy of Covid-19 vaccines in pregnant women will
+              become available over time.
+            </div>
+          </div>
+        </div>
+        <!-- q6 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button fw-semibold"
+              data-bs-toggle="collapse"
+              data-bs-target="#q-6"
+            >
+              Can someone get Covid-19 from the vaccine?
+            </button>
+          </h2>
+          <div
+            class="accordion-collapse collapse"
+            id="q-6"
+            data-bs-parent="#faq-accordion"
+          >
+            <div class="accordion-body bg-white">
+              No, it is not possible to get Covid-19 from vaccines. Vaccines
+              against SARS-CoV-2 use inactivated virus, parts of the virus
+              (e.g., the spike protein), or a gene from the virus. None of these
+              can cause Covid-19.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Contact -->
+
+<section class="contact bg-light py-2" id="contact">
+  <div class="container">
+    <p class="text-center fs-5">
+      Do you have any other questions?
+      <a
+        href=""
+        class="text-main"
+        data-bs-toggle="modal"
+        data-bs-target="#contact-modal"
+        >Contact us</a
+      >
+    </p>
+
+    <div class="modal fade" id="contact-modal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="contact-modal-titel">Contact us</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form action="">
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                class="form-control mb-3"
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                class="form-control mb-3"
+              />
+              <textarea
+                name="message"
+                class="form-control w-100"
+                placeholder="Message"
+              ></textarea>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

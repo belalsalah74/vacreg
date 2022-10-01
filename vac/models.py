@@ -4,6 +4,7 @@ from django.conf import settings
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from . import cities
+from django.urls import reverse
 
 User = settings.AUTH_USER_MODEL
 
@@ -25,7 +26,7 @@ class VaccineShot(models.Model):
     ]
 
     vaccine = models.ForeignKey(Vaccine,on_delete=models.CASCADE)
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     status = models.CharField(
         max_length=1, choices=STATUS_CHOICES, default='P')
     register_date = models.DateField(auto_now_add=True)
@@ -34,6 +35,10 @@ class VaccineShot(models.Model):
    
     def __str__(self) -> str:
         return f'shot {self.id}-{self.user.username}'
+
+    def get_absolute_url(self):
+        return reverse("vaccine:vaccine-detail")
+    
 
       
 @receiver(post_save,sender=VaccineShot)

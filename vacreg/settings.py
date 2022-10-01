@@ -28,12 +28,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'vac',
     'accounts',
-    'crispy_forms',
+    # 'crispy_forms',
 ]
 
 from django.urls import reverse_lazy
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+# CRISPY_TEMPLATE_PACK = 'bootstrap5'
 AUTH_USER_MODEL = 'accounts.CustomUser'
 LOGIN_REDIRECT_URL = reverse_lazy('vaccine:vaccine-detail')
 LOGIN_URL = '/login/'
@@ -54,7 +54,7 @@ ROOT_URLCONF = 'vacreg.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -116,6 +116,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_DIRS = [BASE_DIR / 'static' ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

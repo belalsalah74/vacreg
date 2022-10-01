@@ -1,18 +1,35 @@
 {% extends 'vac/base.html' %}
-{% block title %}Vaccine Details{% endblock title %}
-
+ {% block title %}
+Vaccine Details
+{% endblock title %} 
 {% block content %}
-<h1>Welcome {{object.user.username}}</h1>
+<div class="bg-light wrapper align-items-start align-items-md-center">
+  <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h1 class="my-5">Welcome {{object.user.username|capfirst}}</h1>
 
-{% if object.status == 'P' and now < object.shot_date %}
-            <h3>Your shot is scheduled on {{object.shot_date}} at {{object.get_city_display}} vaccine center.</h3>
+                {% if object.status == 'P' and now < object.shot_date %}
+                <h3>
+                Your shot is scheduled on <span class="text-main">{{object.shot_date}}</span> at
+                <span class="text-main">{{object.get_city_display}} vaccine center </span>.
+                </h3>
 
-{% elif object.status == 'C' and now > object.shot_date %}
-    <h3>Your shot wass succesfully cmopleted</h3>
+                {% elif object.status == 'C' and now > object.shot_date %}
+                <h3>Your shot wass succesfully cmopleted</h3>
 
-{% else %}
+                {% else %}
 
-    <h3>Somethong is wrong please contact customer service.</h3>
-{% endif %}
+                <h3>Somethong is wrong please contact customer service.</h3>
+                {% endif %}
+        </div>
+        <div class="col-md-6 d-none d-md-block">
+            <img src="../../static/images/Coronavirus-Vaccine.svg" alt="" class="img-fluid">
+        </div>
+    </div>
+   
 
+  
+  </div>
+</div>
 {% endblock content %}

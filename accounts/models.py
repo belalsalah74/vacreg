@@ -13,7 +13,6 @@ class CustomUser(AbstractUser):
         )
     phone_number = models.CharField(max_length=11,validators=[
                                     RegexValidator(r'^(01\d{9})$', 'Please enter a valid Phone number')])
-    birth_date = models.DateField()
 
     def __str__(self) -> str:
         return self.username
