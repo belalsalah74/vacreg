@@ -64,7 +64,14 @@
     <main>
       {% if messages %} 
         {% for message in messages %}
-          <div class="alert alert-success my-3 col-md-4">{{message}}</div>
+          <div class="container">
+                    <div class="row">
+                      <div class="col-sm-4 mt-3">
+                        <div class="alert alert-success">{{ message }} </div>
+                      </div>
+                    </div>
+                  </div>
+
 
       {% endfor %}
        {% endif %}
