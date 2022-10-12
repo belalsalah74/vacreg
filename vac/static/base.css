@@ -34,6 +34,12 @@ a {
 
 }
 
+@media screen and (max-width:500px) {
+    .wrapper {
+        min-height: calc(100vh - 83px);
+    }
+}
+
 /* Header and Hero */
 
 .header,
@@ -71,13 +77,14 @@ h1,
     right: 100px;
 
 }
+
 @media screen and (max-width:500px) {
     .svg-lg {
-        top: 100px;
+        top: 450px;
     }
 
     .svg-sm {
-        top: 400px;
+        top: 750px;
 
     }
 }

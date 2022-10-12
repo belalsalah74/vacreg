@@ -5,9 +5,9 @@ Vaccine Detail
 {% block content %}
 <div class="bg-light wrapper align-items-start align-items-md-center">
   <div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <h1 class="my-5">Welcome {{object.user.username|capfirst}}</h1>
+    <div class="row ">
+        <div class="col-md-6 mt-4">
+            <h1 class="my-3">Welcome {{object.user.username|capfirst}}</h1>
 
                 {% if object.status == 'P' and now < object.shot_date %}
                 <h3>
@@ -23,7 +23,7 @@ Vaccine Detail
                 <h3>Somethong is wrong please contact customer service.</h3>
                 {% endif %}
         </div>
-        <div class="col-md-6 d-none d-md-block">
+        <div class="col-md-6 mt-3 mt-md-0 ">
             <img src="../../static/images/Coronavirus-Vaccine.svg" alt="" class="img-fluid">
         </div>
     </div>

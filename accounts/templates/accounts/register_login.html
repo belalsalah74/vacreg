@@ -5,6 +5,7 @@
     {% if user.is_authenticated %}
 
     <h1 class="display-6 mt-3">You are already logged in</h1>
+    <p class="mt-2">Check your vaccine shot detail <a href="{% url 'vaccine:vaccine-detail' %}" class="link-primary">here</a></p>
     {% else %} {% if 'register' in request.path %}
     <h1 class="display-6 mt-3">Step one fill in your personal information</h1>
     {% elif 'login' in request.path %}
