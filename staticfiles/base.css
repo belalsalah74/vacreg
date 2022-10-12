@@ -1,0 +1,128 @@
+:root {
+    --main-color: rgb(44, 179, 203);
+}
+
+/* General */
+
+a {
+    text-decoration: none;
+}
+
+.mt-n5 {
+    margin-top: -100px;
+}
+
+
+.text-main {
+    color: var(--main-color);
+}
+
+.errorlist {
+    color: red;
+    list-style: none;
+}
+
+.btn-primary {
+    background-color: var(--main-color);
+    border: none;
+}
+
+.wrapper {
+    min-height: calc(100vh - 99px);
+    display: flex;
+    align-items: flex-start;
+
+}
+
+/* Header and Hero */
+
+.header,
+.hero {
+    background-color: var(--main-color);
+}
+
+
+.illustrtation {
+    width: 500px;
+}
+
+h1,
+.hero-text {
+    z-index: 2;
+    position: relative;
+}
+
+.corona-svg {
+    position: absolute;
+    opacity: .3;
+    animation: rotate 10000ms infinite reverse linear;
+    pointer-events: none;
+}
+
+
+
+.svg-lg {
+    bottom: 400px;
+    left: 0;
+
+}
+
+.svg-sm {
+    right: 100px;
+
+}
+@media screen and (max-width:500px) {
+    .svg-lg {
+        top: 100px;
+    }
+
+    .svg-sm {
+        top: 400px;
+
+    }
+}
+
+
+@keyframes rotate {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* FAQ */
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+.accordion-button,
+.accordion-button.collapsed,
+.accordion-button:not(.collapsed) {
+    background-color: rgb(245, 245, 245);
+    color: black
+}
+
+.accordion-button.show {
+    background-color: var(--main-color);
+    color: rgb(255, 255, 255);
+}
+
+.accordion-button::before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    background-color: var(--main-color);
+    top: 0;
+    left: 0%;
+    transform: scaleY(0);
+    transition: transform 300ms ease-out;
+}
+
+.accordion-button:hover::before {
+    transform: scaleY(1);
+}

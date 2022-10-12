@@ -168,7 +168,7 @@ cython_debug/
 *.sql
 *workspace
 .env
-static/
+
 media/
 
 # Byte-compiled / optimized / DLL files

@@ -4,7 +4,7 @@ from django.core.validators import RegexValidator
 
 class CustomUser(AbstractUser):
     REQUIRED_FIELDS = ['first_name', 'last_name',
-                       'national_id', 'phone_number', 'birth_date']
+                       'national_id', 'phone_number']
     first_name = models.CharField(max_length=150)
     last_name = models.CharField(max_length=150)
     national_id = models.CharField(

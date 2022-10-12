@@ -9,4 +9,7 @@ urlpatterns = [
     path('vaccine/', views.VaccineCreate.as_view(), name='vaccine-create'),
     path('vaccine/detail/', views.VaccineDetail.as_view(),name='vaccine-detail'),
 
-]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
